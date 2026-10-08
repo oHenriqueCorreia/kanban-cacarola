@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kanban executivo das campanhas de vídeo do Google Ads em 2026.">
+  <title>Kanban de Campanhas Google Ads 2026</title>
+  <link rel="icon" type="image/svg+xml" href="logo-off-cropped.svg">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #2b3040;
+      --surface: #34394A;
+      --surface-2: #3e4458;
+      --line: rgba(134, 198, 92, .30);
+      --text: #ffffff;
+      --muted: #c8ccd7;
+      --cyan: #86C65C;
+      --blue: #86C65C;
+      --amber: #86C65C;
+      --rose: #86C65C;
+      --green: #86C65C;
+      --shadow: 0 18px 50px rgba(23, 26, 35, .32);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(circle at 12% -10%, rgba(134, 198, 92, .18), transparent 28rem),
+        radial-gradient(circle at 90% 0%, rgba(134, 198, 92, .08), transparent 32rem),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    button, input { font: inherit; }
+    button { color: inherit; }
+
+    .app-shell { min-height: 100vh; }
+
+    .topbar {
+      position: sticky;
+      z-index: 10;
+      top: 0;
+      border-bottom: 1px solid rgba(134, 198, 92, .22);
+      background: rgba(52, 57, 74, .94);
+      backdrop-filter: blur(18px);
+    }
+
+    .topbar-inner,
+    .content {
+      width: min(1680px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .topbar-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand-logo-wrap {
+      width: 145px;
+      flex: 0 0 145px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      padding: 7px 11px;
+      border-radius: 10px;
+      background: #ffffff;
+      box-shadow: var(--shadow);
+    }
+    .brand-logo { display: block; width: 100%; height: auto; }
+    .brand h1 { margin: 0; font-size: 1rem; letter-spacing: .01em; }
+    .brand p { margin: 1px 0 0; color: var(--muted); font-size: .82rem; }
+
+    .top-actions { display: flex; align-items: center; gap: 10px; }
+    .btn {
+      min-height: 40px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: var(--surface-2);
+      cursor: pointer;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: #86C65C; }
+    .btn:focus-visible,
+    .filter:focus-visible,
+    input:focus-visible { outline: 3px solid rgba(134, 198, 92, .35); outline-offset: 2px; }
+    .btn.primary { background: var(--cyan); color: #34394A; border-color: transparent; font-weight: 760; }
+
+    .content { padding: 34px 0 46px; }
+
+    .report-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(300px, .55fr);
+      gap: 22px;
+      align-items: stretch;
+      margin-bottom: 22px;
+    }
+
+    .intro,
+    .data-status {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(62, 68, 88, .98), rgba(52, 57, 74, .98));
+      box-shadow: var(--shadow);
+    }
+
+    .intro { padding: 28px; }
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--cyan);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .intro h2 {
+      max-width: 850px;
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -.035em;
+    }
+    .intro .lead { max-width: 920px; margin: 16px 0 0; color: #e2e5eb; font-size: 1rem; }
+    .scope-note {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(134, 198, 92, .20);
+      color: var(--muted);
+      font-size: .88rem;
+    }
+    .scope-note strong { color: var(--amber); }
+
+    .data-status { padding: 23px; display: flex; flex-direction: column; justify-content: space-between; }
+    .data-status h3 { margin: 0; font-size: .92rem; color: #cad6e0; }
+    .quality-score { display: flex; align-items: end; gap: 9px; margin: 12px 0 14px; }
+    .quality-score strong { font-size: 1.8rem; line-height: 1; color: var(--cyan); }
+    .quality-score span { color: var(--muted); padding-bottom: 4px; }
+    .meter { height: 8px; background: rgba(255,255,255,.10); border-radius: 999px; overflow: hidden; }
+    .meter > span { display: block; width: 50%; height: 100%; background: var(--cyan); border-radius: inherit; }
+    .data-status small { display: block; color: var(--muted); margin-top: 12px; }
+
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(155px, 1fr));
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .kpi {
+      min-width: 0;
+      padding: 17px 18px;
+      border-radius: 15px;
+      border: 1px solid var(--line);
+      background: rgba(52, 57, 74, .94);
+    }
+    .kpi-label { color: var(--muted); font-size: .78rem; font-weight: 720; text-transform: uppercase; letter-spacing: .06em; }
+    .kpi-value { margin-top: 6px; font-size: clamp(1.25rem, 2vw, 1.8rem); font-weight: 790; letter-spacing: -.03em; white-space: nowrap; }
+    .kpi-note { margin-top: 3px; color: var(--muted); font-size: .76rem; }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 0 0 18px;
+    }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; }
+    .filter {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 13px;
+      background: transparent;
+      color: #c5d1dc;
+      cursor: pointer;
+    }
+    .filter.active { color: #34394A; background: var(--cyan); border-color: var(--cyan); font-weight: 760; }
+    .search {
+      width: min(350px, 100%);
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0 14px;
+      color: var(--text);
+      background: var(--surface);
+    }
+    .search::placeholder { color: #738ba0; }
+
+    .board {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(310px, 370px);
+      gap: 15px;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      padding: 2px 1px 22px;
+      scroll-snap-type: inline proximity;
+      scrollbar-color: #86C65C transparent;
+    }
+
+    .lane {
+      scroll-snap-align: start;
+      min-height: 630px;
+      padding: 13px;
+      border: 1px solid rgba(134, 198, 92, .20);
+      border-radius: var(--radius);
+      background: rgba(52, 57, 74, .64);
+    }
+
+    .lane-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 5px 3px 13px;
+    }
+    .lane-title-wrap { display: flex; gap: 10px; align-items: center; }
+    .lane-dot,
+    .lane[data-tone="cyan"] .lane-dot,
+    .lane[data-tone="amber"] .lane-dot,
+    .lane[data-tone="rose"] .lane-dot { width: 9px; height: 9px; border-radius: 999px; background: var(--cyan); box-shadow: 0 0 0 5px rgba(134, 198, 92, .12); }
+    .lane-head h3 { margin: 0; font-size: 1rem; }
+    .lane-head p { margin: 2px 0 0; color: var(--muted); font-size: .76rem; }
+    .count { min-width: 30px; padding: 3px 8px; border-radius: 999px; text-align: center; color: #ffffff; background: rgba(134, 198, 92, .18); font-size: .76rem; }
+
+    .stack { display: grid; gap: 11px; }
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: 16px;
+      border: 1px solid rgba(134, 198, 92, .26);
+      border-radius: 14px;
+      background: linear-gradient(145deg, rgba(66, 72, 93, .98), rgba(52, 57, 74, .98));
+      box-shadow: 0 10px 26px rgba(0, 0, 0, .17);
+      transition: transform .18s ease, border-color .18s ease;
+    }
+    .card:hover { transform: translateY(-2px); border-color: #86C65C; }
+    .card.hidden { display: none; }
+    .card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: var(--blue); }
+    .card[data-state="BA"]::before { background: var(--amber); }
+    .card[data-state="SC"]::before { background: var(--cyan); }
+    .card[data-state="GERAL"]::before { background: var(--blue); }
+    .card[data-status="pendente"]::before { background: var(--rose); }
+
+    .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+    .card h4 { margin: 0; font-size: .97rem; line-height: 1.3; }
+    .tag {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border: 1px solid rgba(134, 198, 92, .42);
+      border-radius: 999px;
+      color: #e8f3e1;
+      background: rgba(134, 198, 92, .10);
+      font-size: .69rem;
+      font-weight: 760;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .tag.ok { color: #34394A; background: var(--cyan); border-color: var(--cyan); }
+    .tag.warn { color: #34394A; background: var(--amber); border-color: var(--amber); }
+    .tag.missing { color: #ffffff; background: transparent; border-color: #86C65C; }
+
+    .card p { margin: 10px 0 0; color: #d8dbe3; font-size: .9rem; }
+    .mini-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; margin-top: 13px; }
+    .mini-stat { padding: 10px; background: rgba(43, 48, 64, .78); border: 1px solid rgba(134, 198, 92, .18); border-radius: 10px; }
+    .mini-stat span { display: block; color: var(--muted); font-size: .68rem; text-transform: uppercase; letter-spacing: .05em; }
+    .mini-stat strong { display: block; margin-top: 2px; font-size: .97rem; }
+    .mini-stat strong.na { color: #dff2d2; font-size: .78rem; }
+
+    .rank { display: grid; gap: 9px; margin: 13px 0 0; padding: 0; list-style: none; }
+    .rank li { display: grid; grid-template-columns: 25px minmax(0, 1fr) auto; gap: 8px; align-items: center; }
+    .rank-num { width: 23px; height: 23px; display: grid; place-items: center; border-radius: 7px; background: rgba(134, 198, 92, .16); color: var(--cyan); font-weight: 800; font-size: .72rem; }
+    .rank-name { min-width: 0; color: #c9d5df; font-size: .78rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .rank-value { color: var(--text); font-size: .76rem; font-weight: 720; }
+
+    .bar-list { display: grid; gap: 10px; margin-top: 13px; }
+    .bar-item { display: grid; grid-template-columns: 96px minmax(80px, 1fr) 47px; gap: 8px; align-items: center; font-size: .75rem; }
+    .bar-item > span:first-child { color: #b8c8d6; }
+    .bar-track { height: 7px; border-radius: 999px; background: rgba(255,255,255,.10); overflow: hidden; }
+    .bar-track i { display: block; height: 100%; border-radius: inherit; background: var(--cyan); }
+    .bar-item strong { font-size: .72rem; text-align: right; }
+
+    .check-list { display: grid; gap: 8px; margin: 13px 0 0; padding: 0; list-style: none; }
+    .check-list li { display: grid; grid-template-columns: 18px 1fr; gap: 8px; color: #b6c6d4; font-size: .82rem; }
+    .check-list li::before,
+    .check-list li.warning::before,
+    .check-list li.missing::before { content: ""; width: 9px; height: 9px; margin-top: 5px; border-radius: 999px; background: var(--cyan); box-shadow: 0 0 0 3px rgba(134, 198, 92, .12); }
+
+    .projection {
+      margin-top: 13px;
+      padding: 13px;
+      border-radius: 12px;
+      border: 1px solid rgba(61, 214, 199, .28);
+      background: rgba(61, 214, 199, .07);
+    }
+    .projection strong { display: block; font-size: 1.35rem; color: var(--cyan); }
+    .projection span { color: #b8cbd5; font-size: .78rem; }
+    .allocation { display: grid; grid-template-columns: 45fr 45fr 10fr; gap: 3px; height: 9px; margin: 12px 0 8px; border-radius: 99px; overflow: hidden; }
+    .allocation span:nth-child(1) { background: var(--amber); }
+    .allocation span:nth-child(2) { background: var(--cyan); }
+    .allocation span:nth-child(3) { background: var(--blue); }
+    .legend { display: flex; flex-wrap: wrap; gap: 7px 12px; color: var(--muted); font-size: .7rem; }
+    .legend b { color: #d7e1e9; }
+
+    .roadmap { display: grid; gap: 11px; margin-top: 13px; }
+    .roadmap-item { display: grid; grid-template-columns: 42px 1fr; gap: 10px; }
+    .month { height: 29px; display: grid; place-items: center; border: 1px solid #31506a; border-radius: 8px; color: var(--cyan); font-weight: 800; font-size: .68rem; }
+    .roadmap-item strong { display: block; font-size: .78rem; }
+    .roadmap-item p { margin: 3px 0 0; font-size: .76rem; }
+
+    .board-empty { display: none; padding: 30px; border: 1px dashed #38546d; border-radius: 15px; color: var(--muted); text-align: center; }
+    .board-empty.visible { display: block; }
+
+    .methodology {
+      margin-top: 20px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: rgba(52, 57, 74, .78);
+      color: #aabccc;
+      font-size: .83rem;
+    }
+    .methodology strong { color: #dfe8ef; }
+    .methodology p { margin: 4px 0; }
+
+    @media (max-width: 1050px) {
+      .report-head { grid-template-columns: 1fr; }
+      .kpis { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 720px) {
+      .topbar-inner, .content { width: min(100% - 24px, 1680px); }
+      .topbar-inner { min-height: 70px; gap: 12px; }
+      .brand p { display: none; }
+      .top-actions .btn:not(.primary) { display: none; }
+      .content { padding-top: 20px; }
+      .intro { padding: 22px; }
+      .scope-note { display: block; }
+      .scope-note strong { display: block; margin-bottom: 6px; }
+      .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .toolbar { align-items: stretch; flex-direction: column; }
+      .filters { flex-wrap: nowrap; overflow-x: auto; padding: 1px 0 4px; scrollbar-width: none; }
+      .filters::-webkit-scrollbar { display: none; }
+      .filter { flex: 0 0 auto; }
+      .search { width: 100%; }
+      .board {
+        grid-auto-columns: minmax(286px, calc(100vw - 34px));
+        scroll-padding-inline: 1px;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-x pan-y;
+      }
+      .lane { min-height: 560px; }
+    }
+
+    @media (max-width: 430px) {
+      .brand h1 { font-size: .9rem; }
+      .brand-logo-wrap { width: 112px; flex-basis: 112px; min-height: 38px; padding: 6px 9px; }
+      .btn.primary { padding-inline: 11px; }
+      .kpis { grid-template-columns: 1fr; }
+      .mini-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 380px) {
+      .brand > div:last-child { display: none; }
+      .btn.primary { min-width: 104px; white-space: nowrap; }
+      .board { grid-auto-columns: calc(100vw - 24px); }
+    }
+
+    @media print {
+      :root { color-scheme: light; }
+      body { background: white; color: #13202b; }
+      .topbar, .toolbar { display: none !important; }
+      .content { width: 100%; padding: 0; }
+      .report-head, .kpis { break-inside: avoid; }
+      .intro, .data-status, .kpi, .lane, .card, .methodology { background: white; color: #13202b; box-shadow: none; border-color: #cbd5df; }
+      .intro .lead, .scope-note, .data-status small, .lane-head p, .card p, .methodology, .kpi-note, .kpi-label { color: #526476; }
+      .board { display: grid; grid-template-columns: repeat(2, 1fr); overflow: visible; }
+      .lane { min-height: auto; break-inside: avoid; }
+      .card { break-inside: avoid; }
+      .mini-stat, .bar-track { background: #eef3f7; }
+      .rank-name, .mini-stat strong, .lane-head h3, .card h4 { color: #13202b; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <div class="brand-logo-wrap"><img class="brand-logo" src="logo-off-cropped.svg" alt="Logo da empresa"></div>
+          <div>
+            <h1>Kanban de Campanhas 2026</h1>
+            <p>Google Ads · consolidado executivo</p>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button class="btn" id="resetButton" type="button">Limpar filtros</button>
+          <button class="btn primary" id="printButton" type="button">Salvar PDF</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="report-head" aria-labelledby="report-title">
+        <div class="intro">
+          <p class="eyebrow">Relatório de mídia · atualizado em 08/10/2026</p>
+          <h2 id="report-title">Visão organizada das campanhas de vídeo por estado, criativo e frente de ação</h2>
+          <p class="lead">Consolidação dos CSVs enviados para Bahia e Santa Catarina. O relatório apresenta somente métricas, nomes e recortes contidos nos arquivos fornecidos.</p>
+          <div class="scope-note">
+            <strong>Escopo:</strong>
+            <span>Nos arquivos entregues aparecem campanhas de “Arrozes Especiais” e três VTs de 5 segundos. Famílias do Campo, Mistura para Bolo e Supermarket foram citadas no pedido, mas não constam como nomes de campanha nos CSVs.</span>
+          </div>
+        </div>
+        <aside class="data-status" aria-label="Qualidade dos dados">
+          <div>
+            <h3>Disponibilidade dos recortes solicitados</h3>
+            <div class="quality-score"><strong>Parcial</strong><span>conforme os arquivos enviados</span></div>
+          </div>
+          <small>Disponíveis: investimento, impressões, TrueView, campanha, criativo, localização e dispositivo.</small>
+        </aside>
+      </section>
+
+      <section class="kpis" aria-label="Indicadores consolidados">
+        <article class="kpi">
+          <div class="kpi-label">Investimento</div>
+          <div class="kpi-value">R$ 3.232,25</div>
+          <div class="kpi-note">7 campanhas únicas</div>
+        </article>
+        <article class="kpi">
+          <div class="kpi-label">Impressões</div>
+          <div class="kpi-value">688.099</div>
+          <div class="kpi-note">Todo o período exportado</div>
+        </article>
+        <article class="kpi">
+          <div class="kpi-label">Visualizações TrueView</div>
+          <div class="kpi-value">395.541</div>
+          <div class="kpi-note">Métrica disponível nos CSVs</div>
+        </article>
+        <article class="kpi">
+          <div class="kpi-label">CPM efetivo</div>
+          <div class="kpi-value">R$ 4,70</div>
+          <div class="kpi-note">Investimento ÷ impressões × 1.000</div>
+        </article>
+        <article class="kpi">
+          <div class="kpi-label">Período informado</div>
+          <div class="kpi-value">Todo o período</div>
+          <div class="kpi-note">Os CSVs não isolam o segundo semestre</div>
+        </article>
+      </section>
+
+      <div class="toolbar" aria-label="Filtros do Kanban">
+        <div class="filters" role="group" aria-label="Filtrar por estado">
+          <button class="filter active" type="button" data-filter="TODOS" aria-pressed="true">Todos</button>
+          <button class="filter" type="button" data-filter="BA" aria-pressed="false">Bahia</button>
+          <button class="filter" type="button" data-filter="SC" aria-pressed="false">Santa Catarina</button>
+          <button class="filter" type="button" data-filter="GERAL" aria-pressed="false">Geral</button>
+        </div>
+        <input class="search" id="searchInput" type="search" placeholder="Buscar campanha, cidade, público ou criativo" aria-label="Buscar no relatório">
+      </div>
+
+      <section class="board" id="board" aria-label="Kanban de desempenho">
+        <div class="lane" data-tone="blue">
+          <div class="lane-head">
+            <div class="lane-title-wrap"><span class="lane-dot"></span><div><h3>Resumo por ação</h3><p>Investimento e entrega</p></div></div>
+            <span class="count">3</span>
+          </div>
+          <div class="stack">
+            <article class="card" data-state="GERAL">
+              <div class="card-top"><h4>Arrozes Especiais</h4><span class="tag ok">Consolidado</span></div>
+              <p>Campanhas de vídeo em BA e SC, usando o criativo “A origem do amor”.</p>
+              <div class="mini-grid">
+                <div class="mini-stat"><span>Investimento</span><strong>R$ 3.182,76</strong></div>
+                <div class="mini-stat"><span>Impressões</span><strong>672.599</strong></div>
+                <div class="mini-stat"><span>TrueView</span><strong>395.528</strong></div>
+                <div class="mini-stat"><span>CPM</span><strong>R$ 4,73</strong></div>
+              </div>
+            </article>
+
+            <article class="card" data-state="SC">
+              <div class="card-top"><h4>VTs de 5 segundos</h4><span class="tag">SC</span></div>
+              <p>Três campanhas identificadas como VT 01, VT 02 e VT 03. Os arquivos não informam a qual ação geral esses VTs pertencem.</p>
+              <div class="mini-grid">
+                <div class="mini-stat"><span>Investimento</span><strong>R$ 49,49</strong></div>
+                <div class="mini-stat"><span>Impressões</span><strong>15.500</strong></div>
+                <div class="mini-stat"><span>TrueView</span><strong>13</strong></div>
+                <div class="mini-stat"><span>CPM</span><strong>R$ 3,19</strong></div>
+              </div>
+            </article>
+
+            <article class="card" data-state="GERAL" data-status="pendente">
+              <div class="card-top"><h4>Demais ações de 2026</h4><span class="tag missing">Sem arquivos</span></div>
+              <p>Mistura para Bolo, Supermarket e outras ações citadas não aparecem nos nomes das campanhas exportadas.</p>
+              <ul class="check-list">
+                <li class="missing">Investimento e entrega por ação</li>
+                <li class="missing">Criativos e estados atendidos</li>
+                <li class="missing">Período específico do segundo semestre</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <div class="lane" data-tone="amber">
+          <div class="lane-head">
+            <div class="lane-title-wrap"><span class="lane-dot"></span><div><h3>Bahia</h3><p>3 campanhas ativas</p></div></div>
+            <span class="count">3</span>
+          </div>
+          <div class="stack">
+            <article class="card" data-state="BA">
+              <div class="card-top"><h4>Entrega do estado</h4><span class="tag ok">Ativa</span></div>
+              <div class="mini-grid">
+                <div class="mini-stat"><span>Investimento</span><strong>R$ 2.138,28</strong></div>
+                <div class="mini-stat"><span>Impressões</span><strong>455.365</strong></div>
+                <div class="mini-stat"><span>TrueView</span><strong>263.223</strong></div>
+              </div>
+            </article>
+
+            <article class="card" data-state="BA">
+              <div class="card-top"><h4>Top 3 regiões por TrueView</h4><span class="tag">BA</span></div>
+              <p>Ranking baseado nos relatórios de localização disponíveis de BA 01 e BA 03; BA 02 não trouxe o arquivo de locais.</p>
+              <ol class="rank">
+                <li><span class="rank-num">1</span><span class="rank-name">Salvador</span><span class="rank-value">47.009</span></li>
+                <li><span class="rank-num">2</span><span class="rank-name">Raio de Uruçuca</span><span class="rank-value">26.947</span></li>
+                <li><span class="rank-num">3</span><span class="rank-name">Porto Seguro</span><span class="rank-value">17.863</span></li>
+              </ol>
+            </article>
+
+            <article class="card" data-state="BA">
+              <div class="card-top"><h4>Dispositivos</h4><span class="tag">Impressões</span></div>
+              <div class="bar-list">
+                <div class="bar-item"><span>Telas de TV</span><div class="bar-track"><i style="width:89.5%"></i></div><strong>89,5%</strong></div>
+                <div class="bar-item"><span>Smartphones</span><div class="bar-track"><i style="width:7.8%"></i></div><strong>7,8%</strong></div>
+                <div class="bar-item"><span>Computadores</span><div class="bar-track"><i style="width:2%"></i></div><strong>2,0%</strong></div>
+                <div class="bar-item"><span>Tablets</span><div class="bar-track"><i style="width:.7%"></i></div><strong>0,6%</strong></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="lane" data-tone="cyan">
+          <div class="lane-head">
+            <div class="lane-title-wrap"><span class="lane-dot"></span><div><h3>Santa Catarina</h3><p>1 campanha-base + 3 VTs</p></div></div>
+            <span class="count">3</span>
+          </div>
+          <div class="stack">
+            <article class="card" data-state="SC">
+              <div class="card-top"><h4>Entrega do estado</h4><span class="tag warn">Misto</span></div>
+              <p>A campanha “Arrozes especiais SC 01” está pausada; os VTs de 5 segundos aparecem como ativos.</p>
+              <div class="mini-grid">
+                <div class="mini-stat"><span>Investimento</span><strong>R$ 1.093,97</strong></div>
+                <div class="mini-stat"><span>Impressões</span><strong>232.734</strong></div>
+                <div class="mini-stat"><span>TrueView</span><strong>132.318</strong></div>
+              </div>
+            </article>
+
+            <article class="card" data-state="SC">
+              <div class="card-top"><h4>Top 3 regiões por TrueView</h4><span class="tag">SC</span></div>
+              <p>Ranking da campanha-base “Arrozes especiais SC 01”.</p>
+              <ol class="rank">
+                <li><span class="rank-num">1</span><span class="rank-name">Joinville</span><span class="rank-value">18.336</span></li>
+                <li><span class="rank-num">2</span><span class="rank-name">Florianópolis</span><span class="rank-value">16.476</span></li>
+                <li><span class="rank-num">3</span><span class="rank-name">Criciúma</span><span class="rank-value">12.488</span></li>
+              </ol>
+            </article>
+
+            <article class="card" data-state="SC">
+              <div class="card-top"><h4>Dispositivos</h4><span class="tag">Impressões</span></div>
+              <div class="bar-list">
+                <div class="bar-item"><span>Telas de TV</span><div class="bar-track"><i style="width:85.6%"></i></div><strong>85,6%</strong></div>
+                <div class="bar-item"><span>Smartphones</span><div class="bar-track"><i style="width:9.9%"></i></div><strong>9,9%</strong></div>
+                <div class="bar-item"><span>Computadores</span><div class="bar-track"><i style="width:3.7%"></i></div><strong>3,7%</strong></div>
+                <div class="bar-item"><span>Tablets</span><div class="bar-track"><i style="width:.8%"></i></div><strong>0,8%</strong></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="lane" data-tone="blue">
+          <div class="lane-head">
+            <div class="lane-title-wrap"><span class="lane-dot"></span><div><h3>Criativos</h3><p>Ranking e leitura</p></div></div>
+            <span class="count">3</span>
+          </div>
+          <div class="stack">
+            <article class="card" data-state="BA">
+              <div class="card-top"><h4>Top criativo · Bahia</h4><span class="tag warn">Só 1 disponível</span></div>
+              <p><strong>“A origem do amor”</strong> é o único criativo presente nas três campanhas da Bahia.</p>
+              <div class="mini-grid">
+                <div class="mini-stat"><span>Impressões</span><strong>455.379</strong></div>
+                <div class="mini-stat"><span>TrueView</span><strong>263.228</strong></div>
+                <div class="mini-stat"><span>Investimento</span><strong>R$ 2.138,31</strong></div>
+              </div>
+            </article>
+
+            <article class="card" data-state="SC">
+              <div class="card-top"><h4>Top 3 criativos · SC</h4><span class="tag">Por TrueView</span></div>
+              <ol class="rank">
+                <li><span class="rank-num">1</span><span class="rank-name">A origem do amor</span><span class="rank-value">132.305</span></li>
+                <li><span class="rank-num">2</span><span class="rank-name">VT 02 · Nunca passou pela minha cabeça…</span><span class="rank-value">7</span></li>
+                <li><span class="rank-num">3</span><span class="rank-name">VT 03 · O campo é minha vida</span><span class="rank-value">6</span></li>
+              </ol>
+              <p>Os arquivos registram 7 visualizações TrueView para o VT 02 e 6 para o VT 03.</p>
+            </article>
+
+            <article class="card" data-state="GERAL">
+              <div class="card-top"><h4>Cobertura criativa nos arquivos</h4><span class="tag">Registro</span></div>
+              <p>O material enviado permite identificar quatro nomes de criativos.</p>
+              <ul class="check-list">
+                <li>A origem do amor</li>
+                <li>VT 01 · A gente faz porque tem amor por aquilo que faz</li>
+                <li>VT 02 · Nunca passou pela minha cabeça abandonar essa cultura</li>
+                <li>VT 03 · O campo é minha vida</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <div class="lane" data-tone="cyan">
+          <div class="lane-head">
+            <div class="lane-title-wrap"><span class="lane-dot"></span><div><h3>Públicos e orçamento</h3><p>Informações presentes nos arquivos</p></div></div>
+            <span class="count">2</span>
+          </div>
+          <div class="stack">
+            <article class="card" data-state="GERAL">
+              <div class="card-top"><h4>Segmentação registrada</h4><span class="tag">Geografia</span></div>
+              <p>Os nomes dos segmentos de audiência não vieram. Os relatórios de localização registram somente estados, municípios e raios geográficos.</p>
+              <ul class="check-list">
+                <li>Bahia: municípios e raios presentes nos relatórios de locais</li>
+                <li>Santa Catarina: municípios e raios ao redor de endereços</li>
+                <li>Plataforma identificada: campanhas de vídeo no YouTube</li>
+                <li class="missing">Segmentos de audiência não informados</li>
+              </ul>
+            </article>
+
+            <article class="card" data-state="GERAL">
+              <div class="card-top"><h4>Orçamentos configurados</h4><span class="tag">Google Ads</span></div>
+              <ul class="check-list">
+                <li>Bahia 01, 02 e 03: R$ 10,00 por dia em cada campanha</li>
+                <li>Arrozes especiais SC 01: R$ 15,00 por dia, campanha pausada</li>
+                <li>VT 01: R$ 15,00 de orçamento total da campanha</li>
+                <li>VT 02 e VT 03: R$ 15,00 por dia em cada campanha</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <div class="board-empty" id="emptyState">Nenhum cartão corresponde ao filtro ou à busca.</div>
+
+      <footer class="methodology">
+        <p><strong>Metodologia:</strong> totais de campanha foram usados para o consolidado; dados de anúncios para o ranking de criativos; dados de localização para os rankings regionais; dados de dispositivos para distribuição de impressões.</p>
+        <p><strong>Limites:</strong> os arquivos indicam “Todo o período”, não uma janela exclusiva do segundo semestre. Pequenas diferenças entre totais de campanha, anúncio e dispositivo foram preservadas, sem ajustes artificiais.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    (() => {
+      const filterButtons = [...document.querySelectorAll('.filter')];
+      const cards = [...document.querySelectorAll('.card')];
+      const lanes = [...document.querySelectorAll('.lane')];
+      const searchInput = document.getElementById('searchInput');
+      const emptyState = document.getElementById('emptyState');
+      const resetButton = document.getElementById('resetButton');
+      const printButton = document.getElementById('printButton');
+      let activeFilter = 'TODOS';
+
+      const normalize = (value) => value
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase();
+
+      function applyFilters() {
+        const query = normalize(searchInput.value.trim());
+        let visibleTotal = 0;
+
+        cards.forEach((card) => {
+          const state = card.dataset.state;
+          const stateMatch = activeFilter === 'TODOS' || state === activeFilter;
+          const searchMatch = !query || normalize(card.textContent).includes(query);
+          const visible = stateMatch && searchMatch;
+          card.classList.toggle('hidden', !visible);
+          if (visible) visibleTotal += 1;
+        });
+
+        lanes.forEach((lane) => {
+          const visibleCards = lane.querySelectorAll('.card:not(.hidden)').length;
+          lane.querySelector('.count').textContent = visibleCards;
+          lane.style.display = visibleCards ? '' : 'none';
+        });
+
+        emptyState.classList.toggle('visible', visibleTotal === 0);
+      }
+
+      filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          activeFilter = button.dataset.filter;
+          filterButtons.forEach((item) => {
+            const isActive = item === button;
+            item.classList.toggle('active', isActive);
+            item.setAttribute('aria-pressed', String(isActive));
+          });
+          applyFilters();
+        });
+      });
+
+      searchInput.addEventListener('input', applyFilters);
+      resetButton.addEventListener('click', () => {
+        activeFilter = 'TODOS';
+        searchInput.value = '';
+        filterButtons.forEach((item, index) => {
+          item.classList.toggle('active', index === 0);
+          item.setAttribute('aria-pressed', String(index === 0));
+        });
+        applyFilters();
+      });
+      printButton.addEventListener('click', () => window.print());
+    })();
+  </script>
+</body>
+</html>
